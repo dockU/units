@@ -1,0 +1,12 @@
+[Unit]
+Description=Irssi
+Author=Jon Chen
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker run -d -p 2222:22 -p 113:113 -v /srv/irssi/.irssi:/home/jchen/.irssi -v /srv/irssi/irclogs:/home/jchen/irclogs --name irssi bsdlp/irssi
+ExecStop=/usr/bin/docker stop -t 2 irssi
+
+[Install]
+WantedBy=local.target
