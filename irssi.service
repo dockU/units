@@ -5,7 +5,7 @@ After=docker.service
 
 [Service]
 Restart=always
-ExecStart=/usr/bin/docker run -d -p 2222:22 -p 113:113 -v /srv/irssi/.irssi:/home/jchen/.irssi -v /srv/irssi/irclogs:/home/jchen/irclogs --name irssi bsdlp/irssi
+ExecStart=/usr/bin/docker run -p 2222:22 -p 113:113 -v /srv/irssi/.irssi:/home/jchen/.irssi -v /srv/irssi/irclogs:/home/jchen/irclogs --name irssi bsdlp/irssi
 ExecStop=/usr/bin/docker stop -t 2 irssi
 
 [Install]
