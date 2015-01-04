@@ -5,9 +5,8 @@ After=docker.service
 
 [Service]
 Restart=always
-ExecStartPre=/usr/bin/docker rm irssi
 ExecStart=/usr/bin/docker run -p 2222:22 -p 113:113 -v /srv/irssi/.irssi:/home/jchen/.irssi -v /srv/irssi/irclogs:/home/jchen/irclogs --name irssi bsdlp/irssi
-ExecStop=/usr/bin/docker kill irssi
+ExecStop=/usr/bin/docker kill irssi && /usr/bin/docker rm irssi || true && /usr/bin/docker rmi irssi || true
 
 [Install]
 WantedBy=local.target

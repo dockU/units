@@ -5,9 +5,8 @@ After=docker.service
 
 [Service]
 Restart=always
-ExecStartPre=/usr/bin/docker rm dns
 ExecStart=/usr/bin/docker run --name dns -p 53:53/udp -p 53:53/tcp bsdlp/dns
-ExecStop=/usr/bin/docker kill dns 
+ExecStop=/usr/bin/docker kill dns && /usr/bin/docker rm dns || true && /usr/bin/docker rmi dns || true
 
 [Install]
 WantedBy=local.target
