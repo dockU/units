@@ -1,6 +1,5 @@
 [Unit]
 Description=dns
-Author=Jon Chen
 After=docker.service
 
 [Service]

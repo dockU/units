@@ -1,6 +1,5 @@
 [Unit]
 Description=Irssi
-Author=Jon Chen
 After=docker.service
 
 [Service]
